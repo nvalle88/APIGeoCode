@@ -17,7 +17,15 @@ namespace APIGeoCode.Constant
         public const string postal_code = "postal_code";
 
 
+        public const string premise = "premise";
+        public const string point_of_interest = "point_of_interest";
+        public const string street_address = "street_address";
         
+
+
+
+
+
 
 
 

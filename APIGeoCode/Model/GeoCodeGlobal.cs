@@ -15,6 +15,9 @@ namespace APIGeoCode.Model
         public string short_name { get; set; }
         public Geometry geometry { get; set; }
         public string place_id { get; set; }
+        public PlusCode2 plusCode { get; set; }
+        public List<AddressComponent> addressComponents { get; set; }
+        public List<string> types { get; set; }
     }
 
     public class AdministrativeAreaLevel_1 : Globalattribute
@@ -29,6 +32,19 @@ namespace APIGeoCode.Model
     public class Neighborhood : Globalattribute
     {
 
+    }
+
+    public class PointOfInterest : Globalattribute
+    {
+    }
+
+    public class StreetAddress : Globalattribute
+    {
+       
+    }
+
+    public class Premise:Globalattribute
+    {
     }
 
     public class PostalCode : Globalattribute

@@ -9,7 +9,7 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Configuration.ApiKey = "Your Api";
+            Configuration.ApiKey = "API KEY";
 
             example().GetAwaiter().GetResult();
 
