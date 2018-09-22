@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-namespace APIGeoCode.Model
+namespace GeoCode.Model
 {
 
     public class PlusCode
@@ -142,6 +142,13 @@ namespace APIGeoCode.Model
         public string place_id { get; set; }
         public PlusCode2 plus_code { get; set; }
         public List<string> types { get; set; }
+    }
+
+    public class Error
+    {
+        public string error_message { get; set; }
+        public List<object> results { get; set; }
+        public string status { get; set; }
     }
 
     public class GeoCodeObject

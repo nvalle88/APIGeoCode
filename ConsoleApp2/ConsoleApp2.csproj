@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\APIGeoCode\APIGeoCode.csproj" />
+    <ProjectReference Include="..\APIGeoCode\GeoCode.csproj" />
   </ItemGroup>
 
 </Project>

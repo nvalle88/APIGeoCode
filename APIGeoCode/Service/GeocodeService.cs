@@ -1,39 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using APIGeoCode.Constant;
-using APIGeoCode.Model;
-using APIGeoCode.Util;
+using GeoCode.Constant;
+using GeoCode.Model;
+using GeoCode.Util;
 using Newtonsoft.Json;
 
-namespace APIGeoCode.Service
+namespace GeoCode.Service
 {
     public static class GeocodeService
     {
-
-
-        public static async Task<GeoCodeObject> GetGeocodeApiObject(double latitud, double longitud)
+        public static async Task<Response> GetGeoCode(double latitud, double longitud)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                var a = Configuration.GeocodeApiUrl + GeoCodeConstant.latlng + Convert.ToString(latitud).Replace(",", ".") + "," + Convert.ToString(longitud).Replace(",", ".") + GeoCodeConstant.key + Configuration.ApiKey;
-                var response = await client.GetAsync(a);
-                if (response.IsSuccessStatusCode)
+                using (HttpClient client = new HttpClient())
                 {
-                    var result = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<GeoCodeObject>(result);
+                    var a = Configuration.GeocodeApiUrl + GeoCodeConstant.latlng + Convert.ToString(latitud).Replace(",", ".") + "," + Convert.ToString(longitud).Replace(",", ".") + GeoCodeConstant.key + Configuration.ApiKey;
+                    var response = await client.GetAsync(a);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        var geocodeApi = JsonConvert.DeserializeObject<GeoCodeObject>(result);
+                        if (geocodeApi.status==GeoCodeConstant.OK)
+                        {
+                            var geoCode = GetGeoCodeObject(geocodeApi);
+                            return new Response { ErrorMessage = "", Geocode = geoCode, Status = geocodeApi.status };
+                        }
+                        var error = await response.Content.ReadAsStringAsync();
+                        var geocodeError = JsonConvert.DeserializeObject<Error>(error);
+                        return new Response { ErrorMessage = geocodeError.error_message, Geocode = null, Status = geocodeError.status };
+                    }
+                    return new Response { ErrorMessage = Message.MennsageNotConnection, Geocode = null, Status = Message.NotConnection};
                 }
-                return new GeoCodeObject();
+            }
+            catch (Exception ex)
+            {
+                return new Response { ErrorMessage = ex.Message, Geocode = null, Status = ex.InnerException.Message };
+                throw;
             }
         }
 
-        public static GeoCodeCompact GetGeoCodeObject(GeoCodeObject geoCodeObject)
+        private static GeoCodeResult GetGeoCodeObject(GeoCodeObject geoCodeObject)
         {
 
             if (geoCodeObject != null)
             {
-                var geocodeResult = new GeoCodeCompact();
+                var geocodeResult = new GeoCodeResult();
                 geocodeResult.PlusCode = geoCodeObject.plus_code;
                 foreach (var item in geoCodeObject.results)
                 {
@@ -102,7 +115,7 @@ namespace APIGeoCode.Service
                 }
                 return geocodeResult;
             }
-            return new GeoCodeCompact();
+            return new GeoCodeResult();
         }
     }
 }

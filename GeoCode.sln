@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGeoCode", "APIGeoCode\APIGeoCode.csproj", "{4EF4B1B0-BF72-4252-A2F1-91BFB6101CB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoCode", "APIGeoCode\GeoCode.csproj", "{4EF4B1B0-BF72-4252-A2F1-91BFB6101CB7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{D5965CFF-66CA-4B60-AD47-5EBA8C829711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{E7BD5EB5-BDE5-4BBC-A565-5FFD6714E3AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{4EF4B1B0-BF72-4252-A2F1-91BFB6101CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EF4B1B0-BF72-4252-A2F1-91BFB6101CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EF4B1B0-BF72-4252-A2F1-91BFB6101CB7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5965CFF-66CA-4B60-AD47-5EBA8C829711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5965CFF-66CA-4B60-AD47-5EBA8C829711}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5965CFF-66CA-4B60-AD47-5EBA8C829711}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5965CFF-66CA-4B60-AD47-5EBA8C829711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7BD5EB5-BDE5-4BBC-A565-5FFD6714E3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7BD5EB5-BDE5-4BBC-A565-5FFD6714E3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7BD5EB5-BDE5-4BBC-A565-5FFD6714E3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7BD5EB5-BDE5-4BBC-A565-5FFD6714E3AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

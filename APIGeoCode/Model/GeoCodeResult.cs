@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace APIGeoCode.Model
+﻿namespace GeoCode.Model
 {
-    public class GeoCodeCompact
+    public class GeoCodeResult
     {
         public Route Route { get; set; }
         public AdministrativeAreaLevel_1 AdministrativeAreaLevel_1 { get; set; }

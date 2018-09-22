@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using APIGeoCode.Service;
-using APIGeoCode.Util;
+using GeoCode.Service;
+using GeoCode.Util;
 
 namespace ConsoleApp2
 {
@@ -9,7 +9,7 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Configuration.ApiKey = "API KEY";
+            Configuration.ApiKey = "";
 
             example().GetAwaiter().GetResult();
 
@@ -18,14 +18,9 @@ namespace ConsoleApp2
         private static async Task example()
         {
             var inicio= DateTime.Now;
-            var geocode = await GeocodeService.GetGeocodeApiObject(40.670602, -73.937918);
+            var geocode = await GeocodeService.GetGeoCode(40.670602, -73.937918);
             var total = (DateTime.Now - inicio).TotalMilliseconds;
-            Console.WriteLine("Tiempo en consumir Api :" + Convert.ToString(total));
-            inicio = DateTime.Now;
-            var GeoObgetc = GeocodeService.GetGeoCodeObject(geocode);
-            total = (DateTime.Now - inicio).TotalMilliseconds;
-            Console.WriteLine("Tiempo en consultar método :" + Convert.ToString(total));
-
+            Console.WriteLine("Tiempo total consumir :" + Convert.ToString(total));
             Console.ReadLine();
             example().GetAwaiter().GetResult();
         }

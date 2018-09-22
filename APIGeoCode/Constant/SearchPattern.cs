@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace APIGeoCode.Constant
+﻿namespace GeoCode.Constant
 {
-    
-   public static class SearchPattern
+
+    public static class SearchPattern
     {
         public const string country = "country";
         public const string locality = "locality";
