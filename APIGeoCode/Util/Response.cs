@@ -5,7 +5,7 @@ using GeoCode.Model;
 
 namespace GeoCode.Util
 {
-   public class Response
+    public class Response
     {
         public string Status { get; set; }
         public string ErrorMessage { get; set; }
